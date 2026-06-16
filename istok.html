@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Истокъ — Поздеева Полина</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .video-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .video-tile {
+      position: relative;
+      cursor: pointer;
+      line-height: 0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .video-tile video {
+      height: 520px;
+      width: auto;
+      background: #000;
+      display: block;
+      pointer-events: none; /* clicks go to the tile, not the native player */
+    }
+    .video-tile .play-badge {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: rgba(10,10,10,0.4);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .3s var(--ease), transform .3s var(--ease);
+    }
+    .video-tile:hover .play-badge {
+      background: rgba(10,10,10,0.62);
+      transform: translate(-50%, -50%) scale(1.06);
+    }
+    .video-tile .play-badge svg {
+      width: 20px; height: 20px;
+      margin-left: 3px;
+      fill: #fff;
+    }
+    /* enlarged video overlay */
+    .video-lightbox .vlb-video {
+      max-width: 92vw;
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      border-radius: 6px;
+      background: #000;
+    }
+    @media (max-width: 700px) {
+      .video-tile video { height: 360px; }
+    }
+    /* sub-blocks inside a case-section */
+    .case-sub { margin-top: 56px; }
+    .case-sub:first-of-type { margin-top: 8px; }
+    .case-subhead {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 6px;
+    }
+    .case-subtitle {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.05;
+      margin: 0 0 14px;
+    }
+    .case-subtext {
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--grey);
+      max-width: 640px;
+      margin: 0 0 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="case-page-nav">
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 16 16"><line x1="13" y1="8" x2="3" y2="8"/><polyline points="7,4 3,8 7,12"/></svg>
+      <span data-ru="Все проекты" data-en="All work">Все проекты</span>
+    </a>
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="ru">RU</button>
+      <span class="lang-sep">/</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </nav>
+
+  <header class="case-hero">
+    <div class="case-hero-meta">
+      <div class="case-hero-index">03 — <span data-ru="Кавказские Минеральные Воды" data-en="Caucasian Mineral Waters">Кавказские Минеральные Воды</span></div>
+      <h1 class="case-hero-title">Истокъ</h1>
+      <div class="case-hero-tags">
+        <span class="case-hero-tag" data-ru="SMM-дизайн" data-en="SMM Design">SMM-дизайн</span>
+        <span class="case-hero-tag" data-ru="Соцсети" data-en="Social Media">Соцсети</span>
+        <span class="case-hero-tag" data-ru="Карусели" data-en="Carousels">Карусели</span>
+        <span class="case-hero-tag" data-ru="Сторис" data-en="Stories">Сторис</span>
+      </div>
+    </div>
+    <div>
+      <p class="case-hero-desc"
+         data-ru="Премиальный санаторий на Кавказских Минеральных Водах. Веду SMM-дизайн для соцсетей: контентные карусели и сторис в спокойной редакционной эстетике — мягкая палитра, выразительная типографика, живая съёмка."
+         data-en="A premium health resort in the Caucasian Mineral Waters. I run the SMM design for social media: content carousels and stories in a calm editorial aesthetic — soft palette, expressive typography, real photography.">
+        Премиальный санаторий на Кавказских Минеральных Водах. Веду SMM-дизайн для соцсетей: контентные карусели и сторис в спокойной редакционной эстетике — мягкая палитра, выразительная типографика, живая съёмка.
+      </p>
+    </div>
+  </header>
+
+  <div class="divider"></div>
+
+  <!-- CAROUSELS / POSTS -->
+  <section class="case-section">
+    <div class="case-section-label" data-ru="Карусели — посты" data-en="Carousels — Posts">Карусели — посты</div>
+    <h2 class="case-section-title" data-ru="Контент<br>для ленты" data-en="Feed<br>Content">Контент<br>для ленты</h2>
+    <p class="case-section-text"
+       data-ru="Образовательные карусели для ленты: обложка-крючок на крупной редакционной съёмке, внутренние слайды — на единой светлой сетке с акцентными стрелками и крупной типографикой."
+       data-en="Educational feed carousels: a hook cover on a large editorial shot, inner slides on a unified light grid with accent arrows and bold typography.">
+      Образовательные карусели для ленты: обложка-крючок на крупной редакционной съёмке, внутренние слайды — на единой светлой сетке с акцентными стрелками и крупной типографикой.
+    </p>
+
+    <!-- carousel 1 -->
+    <div class="case-sub">
+      <div class="case-subhead" data-ru="Пример 1" data-en="Example 1">Пример 1</div>
+      <h3 class="case-subtitle" data-ru="Не SPF и не вода" data-en="Not SPF, Not Water">Не SPF и не вода</h3>
+      <p class="case-subtext" data-ru="9 небанальных советов по уходу за кожей летом." data-en="9 non-obvious tips on summer skincare.">9 небанальных советов по уходу за кожей летом.</p>
+      <div class="justified-gallery" data-row-height="360">
+        <div class="g-item"><img src="img/istok-1.png" alt="Не SPF и не вода — обложка"></div>
+        <div class="g-item"><img src="img/istok-1-1.png" alt="Совет 1 — омега-3 до пляжа"></div>
+        <div class="g-item"><img src="img/istok-1-5.png" alt="Совет 2 — щепотка соли в воду"></div>
+        <div class="g-item"><img src="img/istok-1-9.png" alt="Совет 3 — обувь с супинаторами"></div>
+        <div class="g-item"><img src="img/istok-1-2.png" alt="Совет 4 — движение в самолёте"></div>
+        <div class="g-item"><img src="img/istok-1-8.png" alt="Совет 5 — ниацинамид и витамин С"></div>
+        <div class="g-item"><img src="img/istok-1-7.png" alt="Совет 6 — помидоры для защиты кожи"></div>
+        <div class="g-item"><img src="img/istok-1-6.png" alt="Советы 7–8 — тёплые напитки, охлаждение"></div>
+        <div class="g-item"><img src="img/istok-1-3.png" alt="Совет 9 — гель алоэ вера"></div>
+        <div class="g-item"><img src="img/istok-1-4.png" alt="Финальный слайд"></div>
+      </div>
+      <p class="caption" data-ru="10 слайдов. Формат 4:5." data-en="10 slides. 4:5 format.">10 слайдов. Формат 4:5.</p>
+    </div>
+
+    <!-- carousel 2 -->
+    <div class="case-sub">
+      <div class="case-subhead" data-ru="Пример 2" data-en="Example 2">Пример 2</div>
+      <h3 class="case-subtitle" data-ru="5 правил питания" data-en="5 Rules of Nutrition">5 правил питания</h3>
+      <p class="case-subtext" data-ru="Принципы питания, которые меняют самочувствие." data-en="Nutrition principles that change how you feel.">Принципы питания, которые меняют самочувствие.</p>
+      <div class="justified-gallery" data-row-height="360">
+        <div class="g-item"><img src="img/istok-2.png" alt="5 правил питания — обложка"></div>
+        <div class="g-item"><img src="img/istok-2-1.png" alt="Правило питания — слайд"></div>
+        <div class="g-item"><img src="img/istok-2-2.png" alt="Правило питания — слайд"></div>
+        <div class="g-item"><img src="img/istok-2-3.png" alt="Качество жиров — слайд"></div>
+        <div class="g-item"><img src="img/istok-2-4.png" alt="Правило питания — слайд"></div>
+        <div class="g-item"><img src="img/istok-2-5.png" alt="Правило питания — слайд"></div>
+        <div class="g-item"><img src="img/istok-2-6.png" alt="Финальный слайд"></div>
+      </div>
+      <p class="caption" data-ru="7 слайдов. Формат 4:5." data-en="7 slides. 4:5 format.">7 слайдов. Формат 4:5.</p>
+    </div>
+
+    <!-- telegram post -->
+    <div class="case-sub">
+      <div class="case-subhead" data-ru="Пример 3 — Telegram" data-en="Example 3 — Telegram">Пример 3 — Telegram</div>
+      <h3 class="case-subtitle" data-ru="Советы экспертов" data-en="Experts' Advice">Советы экспертов</h3>
+      <p class="case-subtext" data-ru="Пост для Telegram-канала: серия карточек с весенними советами от специалистов санатория — дерматолога, шеф-повара, замдиректора по лечебной работе. Портрет-аватар, имя и должность, цитата поверх живой съёмки." data-en="A post for the Telegram channel: a series of cards with spring advice from the resort's specialists — dermatologist, chef, deputy medical director. Avatar portrait, name and role, a quote over live photography.">Пост для Telegram-канала: серия карточек с весенними советами от специалистов санатория — дерматолога, шеф-повара, замдиректора по лечебной работе. Портрет-аватар, имя и должность, цитата поверх живой съёмки.</p>
+      <div class="justified-gallery" data-row-height="360">
+        <div class="g-item"><img src="img/istok-tg.png" alt="Совет эксперта — замдиректора по лечебной работе"></div>
+        <div class="g-item"><img src="img/istok-tg-3.png" alt="Совет эксперта — врач-диетолог, терапевт"></div>
+        <div class="g-item"><img src="img/istok-tg-2.png" alt="Совет эксперта — шеф-повар"></div>
+        <div class="g-item"><img src="img/istok-tg-5.png" alt="Совет эксперта — врач-терапевт"></div>
+        <div class="g-item"><img src="img/istok-tg-1.png" alt="Совет эксперта — врач-дерматолог, косметолог"></div>
+        <div class="g-item"><img src="img/istok-tg-4.png" alt="Совет эксперта — мастер эстетического кабинета, массажист"></div>
+      </div>
+      <p class="caption" data-ru="6 карточек. Формат 4:5." data-en="6 cards. 4:5 format.">6 карточек. Формат 4:5.</p>
+    </div>
+  </section>
+
+  <!-- STORIES -->
+  <section class="case-section">
+    <div class="case-section-label" data-ru="Сторис" data-en="Stories">Сторис</div>
+    <h2 class="case-section-title" data-ru="Дизайн и монтаж<br>сторис" data-en="Story Design<br>&amp; Motion">Дизайн и монтаж<br>сторис</h2>
+    <p class="case-section-text"
+       data-ru="Сторис в формате 9:16: анонсы программ, авторское меню, новинки. Фирменные плашки-«пилюли» со скруглением, тонкая типографика, выделение ключевых фраз. Делаю и статичные макеты, и анимацию с монтажом видео-съёмки в той же визуальной системе."
+       data-en="Stories in 9:16: programme announcements, signature menu, new launches. Branded pill-shaped panels, fine typography, highlighted key phrases. I make both static layouts and motion — editing video footage in the same visual system.">
+      Сторис в формате 9:16: анонсы программ, авторское меню, новинки. Фирменные плашки-«пилюли» со скруглением, тонкая типографика, выделение ключевых фраз. Делаю и статичные макеты, и анимацию с монтажом видео-съёмки в той же визуальной системе.
+    </p>
+
+    <!-- static stories -->
+    <div class="case-sub">
+      <div class="case-subhead" data-ru="Статика" data-en="Static">Статика</div>
+      <h3 class="case-subtitle" data-ru="Статичные сторис" data-en="Static Stories">Статичные сторис</h3>
+      <div class="justified-gallery" data-row-height="460">
+        <div class="g-item"><img src="img/istok-stories.png" alt="Сторис — новинка Экзомайнд"></div>
+        <div class="g-item"><img src="img/istok-stories-1.png" alt="Сторис"></div>
+        <div class="g-item"><img src="img/istok-stories-2.png" alt="Сторис"></div>
+        <div class="g-item"><img src="img/istok-stories-3.png" alt="Сторис"></div>
+        <div class="g-item"><img src="img/istok-st3.png" alt="Сторис — детокс-меню"></div>
+        <div class="g-item"><img src="img/istok-st4.png" alt="Сторис"></div>
+        <div class="g-item"><img src="img/istok-st-vid1.png" alt="Сторис"></div>
+      </div>
+    </div>
+
+    <!-- video stories -->
+    <div class="case-sub">
+      <div class="case-subhead" data-ru="Анимация и монтаж" data-en="Motion &amp; Editing">Анимация и монтаж</div>
+      <h3 class="case-subtitle" data-ru="Видео-сторис" data-en="Video Stories">Видео-сторис</h3>
+      <p class="case-subtext" data-ru="Плавное появление плашек и текста поверх видео-съёмки — та же система в движении." data-en="Panels and text smoothly appearing over video footage — the same system in motion.">Плавное появление плашек и текста поверх видео-съёмки — та же система в движении.</p>
+      <div class="video-row">
+        <div class="video-tile" data-src="img/istok-story.mp4">
+          <video src="img/istok-story.mp4" muted loop playsinline autoplay preload="metadata"></video>
+          <div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="video-tile" data-src="img/istok-st.mp4">
+          <video src="img/istok-st.mp4" muted loop playsinline autoplay preload="metadata"></video>
+          <div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="video-tile" data-src="img/istok-st2.mp4">
+          <video src="img/istok-st2.mp4" muted loop playsinline autoplay preload="metadata"></video>
+          <div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="video-tile" data-src="img/istok-st-vid2.mp4">
+          <video src="img/istok-st-vid2.mp4" muted loop playsinline autoplay preload="metadata"></video>
+          <div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-copy" data-ru="© 2026 Поздеева Полина" data-en="© 2026 Pauline Pozdeeva">© 2026 Поздеева Полина</span>
+    <a href="index.html" style="font-size:14px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;border-bottom:1px solid var(--black);">
+      <span data-ru="← Все проекты" data-en="← All work">← Все проекты</span>
+    </a>
+  </footer>
+
+  <script src="lang.js"></script>
+  <script src="gallery.js"></script>
+  <script src="lightbox.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        document.querySelectorAll('.g-item').forEach((item, i) => {
+          item.addEventListener('click', () => window._lb && window._lb.open(i));
+        });
+      }, 800);
+    });
+  </script>
+
+  <!-- VIDEO LIGHTBOX -->
+  <script>
+    (function () {
+      const overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay video-lightbox';
+      overlay.innerHTML = `
+        <button class="lightbox-close">ESC / закрыть</button>
+        <video class="vlb-video" controls playsinline></video>
+      `;
+      document.body.appendChild(overlay);
+
+      const vid = overlay.querySelector('.vlb-video');
+      const btnClose = overlay.querySelector('.lightbox-close');
+
+      function open(src) {
+        vid.src = src;
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        vid.currentTime = 0;
+        vid.play().catch(() => {});
+      }
+      function close() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        vid.pause();
+        setTimeout(() => { vid.removeAttribute('src'); vid.load(); }, 300);
+      }
+
+      btnClose.addEventListener('click', close);
+      overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+      document.addEventListener('keydown', e => {
+        if (overlay.classList.contains('active') && e.key === 'Escape') close();
+      });
+
+      document.querySelectorAll('.video-tile').forEach(tile => {
+        tile.addEventListener('click', () => open(tile.dataset.src));
+      });
+    })();
+  </script>
+</body>
+</html>

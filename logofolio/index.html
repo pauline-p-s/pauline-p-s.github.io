@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pauline — Logofolio</title>
+<style>
+@font-face {
+  font-family: 'Lithium';
+  src: url('Lithium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #F5F4F0;
+  --ink: #0E0E0D;
+  --ink2: #6B6B67;
+  --ink3: #AEAEA9;
+  --border: rgba(14,14,13,0.1);
+  --li: 'Lithium', Georgia, serif;
+  --ha: 'Hauora Sans', 'DM Sans', system-ui, sans-serif;
+  --pad: 48px;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--ha);
+  font-size: 15px;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NO RAINBOW — clean border */
+.page-wrap {
+  min-height: 100vh;
+  background: var(--bg);
+}
+.page-inner {
+  background: var(--bg);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px var(--pad);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-family: var(--li); font-size: 16px; font-weight: normal; color: var(--ink); text-decoration: none; letter-spacing: 0.01em; }
+.nav-center { font-size: 11px; color: var(--ink3); letter-spacing: 0.12em; text-transform: uppercase; }
+.lang-switch { display: flex; }
+.lang-btn {
+  font-family: var(--ha); font-size: 12px; padding: 5px 11px;
+  border: 1px solid var(--border); background: transparent; color: var(--ink3);
+  cursor: pointer; letter-spacing: 0.08em; transition: all 0.15s;
+}
+.lang-btn:first-child { border-radius: 4px 0 0 4px; border-right: none; }
+.lang-btn:last-child  { border-radius: 0 4px 4px 0; }
+.lang-btn.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+/* HERO */
+.hero {
+  padding: 72px var(--pad) 68px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  border-bottom: 1px solid var(--border);
+  gap: 48px;
+}
+.hero-eyebrow { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink3); margin-bottom: 20px; }
+.hero-title {
+  font-family: var(--li);
+  font-size: clamp(44px, 6vw, 88px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  font-weight: normal;
+}
+.hero-body { font-size: 15px; line-height: 1.55; color: var(--ink2); max-width: 360px; margin-bottom: 44px; }
+.hero-meta { display: flex; gap: 40px; padding-top: 28px; border-top: 1px solid var(--border); }
+.meta-num { font-family: var(--li); font-size: 30px; font-weight: normal; color: var(--ink); line-height: 1; margin-bottom: 6px; }
+.meta-label { font-size: 11px; color: var(--ink3); letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* SECTION ROW */
+.section-row {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding: 32px var(--pad); border-bottom: 1px solid var(--border);
+}
+.section-title { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink3); }
+.section-hint  { font-size: 11px; color: var(--ink3); letter-spacing: 0.06em; }
+
+/* PROJECT */
+.project {
+  border-bottom: 1px solid var(--border);
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.project.visible { opacity: 1; transform: none; }
+.project-header {
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  align-items: baseline;
+  padding: 36px var(--pad) 0;
+}
+.project-num  { font-size: 11px; color: var(--ink3); letter-spacing: 0.1em; padding-top: 4px; }
+.project-name {
+  font-family: var(--li);
+  font-size: clamp(28px, 3.6vw, 52px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  font-weight: normal;
+}
+.project-year { font-size: 11px; color: var(--ink3); letter-spacing: 0.08em; padding-top: 4px; }
+.project-tags-row { display: flex; flex-wrap: wrap; gap: 6px; padding: 14px var(--pad) 0 120px; }
+.tag { font-size: 11px; color: var(--ink3); border: 1px solid var(--border); border-radius: 20px; padding: 3px 10px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* IMAGE GRID */
+.img-grid { padding: 24px var(--pad); display: grid; gap: 8px; }
+.img-grid.layout-a { grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 260px 260px; }
+.img-grid.layout-b { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 280px 200px; }
+.img-card {
+  overflow: hidden; border-radius: 8px; background: #E2E0DB;
+  cursor: zoom-in; position: relative;
+}
+.img-card::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(14,14,13,0); transition: background 0.2s;
+}
+.img-card:hover::after { background: rgba(14,14,13,0.06); }
+.img-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.img-card.row-span { grid-row: span 2; }
+.img-card.col-span { grid-column: span 2; }
+
+/* PROJECT FOOTER */
+.project-footer {
+  display: grid;
+  grid-template-columns: 120px 1fr 1fr;
+  padding: 0 var(--pad) 40px;
+  align-items: start;
+}
+.project-desc { font-size: 14px; line-height: 1.55; color: var(--ink2); padding-right: 48px; padding-top: 4px; }
+.project-specs { border-left: 1px solid var(--border); padding-left: 28px; }
+.spec-row {
+  display: flex; justify-content: space-between;
+  padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 12px;
+}
+.spec-key { color: var(--ink3); }
+.spec-val { color: var(--ink); font-weight: 500; text-align: right; }
+
+/* ABOUT */
+.about { background: var(--ink); padding: 80px var(--pad); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.about-eyebrow { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(245,244,240,0.35); margin-bottom: 22px; }
+.about-name {
+  font-family: var(--li);
+  font-size: clamp(40px, 5vw, 68px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #F5F4F0;
+  font-weight: normal;
+  margin-bottom: 28px;
+}
+.about-text { font-size: 15px; line-height: 1.55; color: rgba(245,244,240,0.5); }
+.about-quote {
+  font-family: var(--li); font-size: 21px; line-height: 1.3; font-weight: normal;
+  color: #F5F4F0; margin-bottom: 44px; letter-spacing: -0.01em;
+}
+.contact-list { list-style: none; }
+.contact-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 13px 0; border-top: 1px solid rgba(245,244,240,0.08);
+}
+.contact-item:last-child { border-bottom: 1px solid rgba(245,244,240,0.08); }
+.contact-key { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,244,240,0.25); }
+.contact-val { font-size: 13px; color: rgba(245,244,240,0.65); text-decoration: none; transition: color 0.15s; }
+.contact-val:hover { color: #F5F4F0; }
+
+/* FOOTER */
+footer {
+  padding: 22px var(--pad);
+  display: flex; justify-content: space-between;
+  border-top: 1px solid var(--border);
+}
+.footer-text { font-size: 11px; color: var(--ink3); letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* LIGHTBOX */
+.lb {
+  display: none; position: fixed; inset: 0; z-index: 1000;
+  background: rgba(14,14,13,0.93);
+  align-items: center; justify-content: center;
+}
+.lb.open { display: flex; }
+.lb-img-wrap {
+  position: relative;
+  max-width: 88vw;
+  max-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lb-img-wrap img {
+  max-width: 88vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 4px;
+  animation: lbIn 0.2s ease;
+  display: block;
+}
+@keyframes lbIn { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
+.lb-close {
+  position: fixed; top: 20px; right: 24px;
+  font-size: 32px; color: rgba(245,244,240,0.5);
+  cursor: pointer; background: none; border: none;
+  line-height: 1; transition: color 0.15s; z-index: 1001;
+}
+.lb-close:hover { color: #F5F4F0; }
+.lb-arrow {
+  position: fixed;
+  top: 50%; transform: translateY(-50%);
+  font-size: 40px; color: rgba(245,244,240,0.4);
+  cursor: pointer; background: none; border: none;
+  line-height: 1; transition: color 0.15s; z-index: 1001;
+  padding: 16px;
+  user-select: none;
+}
+.lb-arrow:hover { color: #F5F4F0; }
+.lb-prev { left: 16px; }
+.lb-next { right: 16px; }
+.lb-counter {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  font-size: 11px; color: rgba(245,244,240,0.35); letter-spacing: 0.1em;
+}
+
+/* LANG */
+.ru, .en { display: none; }
+.ru.on { display: block; }
+.en.on { display: block; }
+.rui, .eni { display: none; }
+.rui.on { display: inline; }
+.eni.on { display: inline; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  :root { --pad: 28px; }
+  .hero { grid-template-columns: 1fr; padding-top: 48px; padding-bottom: 48px; gap: 36px; }
+  .hero-body { max-width: 100%; }
+  .project-header { grid-template-columns: 40px 1fr auto; }
+  .project-tags-row { padding-left: 64px; }
+  .img-grid.layout-a {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px 200px 200px;
+  }
+  .img-card.row-span { grid-row: span 1; grid-column: span 2; }
+  .img-grid.layout-b {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px 200px 200px;
+  }
+  .img-card.col-span { grid-column: span 2; }
+  .project-footer { grid-template-columns: 1fr; gap: 24px; }
+  .project-footer > div:first-child { display: none; }
+  .project-desc { padding-right: 0; }
+  .project-specs { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 16px; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .nav-center { display: none; }
+}
+@media (max-width: 600px) {
+  :root { --pad: 20px; }
+  nav { padding: 18px var(--pad); }
+  .hero { padding: 40px var(--pad) 40px; }
+  .hero-title { font-size: clamp(36px, 11vw, 56px); }
+  .hero-meta { gap: 24px; flex-wrap: wrap; }
+  .project-header { grid-template-columns: 32px 1fr auto; }
+  .project-tags-row { padding-left: 48px; }
+  .img-grid.layout-a,
+  .img-grid.layout-b { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .img-card { aspect-ratio: 4/3; height: auto; }
+  .img-card.row-span, .img-card.col-span { grid-column: span 1; grid-row: span 1; }
+  .about { padding: 48px var(--pad); }
+  .about-name { font-size: clamp(36px, 10vw, 52px); }
+  footer { flex-direction: column; gap: 8px; }
+  .lb-arrow { font-size: 28px; padding: 10px; }
+  .lb-prev { left: 4px; }
+  .lb-next { right: 4px; }
+}
+</style>
+</head>
+<body>
+<div class="page-wrap"><div class="page-inner">
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Pauline</a>
+  <span class="nav-center"><span class="ru on">Логофолио</span><span class="en">Logofolio</span></span>
+  <div class="lang-switch">
+    <button class="lang-btn active" onclick="setLang('ru')">RU</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <p class="hero-eyebrow">
+      <span class="ru on">Графический дизайн · Айдентика</span>
+      <span class="en">Graphic design · Identity</span>
+    </p>
+    <h1 class="hero-title">
+      <span class="ru on">Логотип —<br>это не красота,<br>это точность</span>
+      <span class="en">A logo is not<br>beauty —<br>it's precision</span>
+    </h1>
+  </div>
+  <div>
+    <p class="hero-body">
+      <span class="ru on">Меня зовут Полина. Я делаю знаки, которые работают — на визитке, на фасаде, в пикселях. Без лишнего, без случайного.</span>
+      <span class="en">I'm Pauline. I make marks that work — on a business card, on a facade, in pixels. Nothing extra, nothing accidental.</span>
+    </p>
+    <div class="hero-meta">
+      <div>
+        <div class="meta-num">5</div>
+        <div class="meta-label"><span class="ru on">Лет опыта</span><span class="en">Years exp.</span></div>
+      </div>
+      <div>
+        <div class="meta-num">B2B</div>
+        <div class="meta-label"><span class="ru on">Специализация</span><span class="en">Speciality</span></div>
+      </div>
+      <div>
+        <div class="meta-num">∅</div>
+        <div class="meta-label"><span class="ru on">Случайных решений</span><span class="en">Random calls</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION ROW -->
+<div class="section-row">
+  <span class="section-title"><span class="ru on">Избранные работы</span><span class="en">Selected work</span></span>
+  <span class="section-hint"><span class="ru on">Прокрутите вниз</span><span class="en">Scroll down</span></span>
+</div>
+
+<!-- PROJECT 01 -->
+<div class="project" id="p1">
+  <div class="project-header">
+    <span class="project-num">01</span>
+    <h2 class="project-name"><span class="ru on">ГК «Аспект»</span><span class="en">Aspect Group</span></h2>
+    <span class="project-year">2024</span>
+  </div>
+  <div class="project-tags-row">
+    <span class="tag"><span class="ru on">Айдентика</span><span class="en">Identity</span></span>
+    <span class="tag"><span class="ru on">Концепция 1</span><span class="en">Concept 1</span></span>
+  </div>
+  <div class="img-grid layout-a" data-gallery="p1">
+    <div class="img-card row-span" onclick="openLb('p1',0)"><img src="Frame_5.png" alt="Аспект — основной знак"></div>
+    <div class="img-card" onclick="openLb('p1',1)"><img src="Frame_1.png" alt="Аспект — белый фон"></div>
+    <div class="img-card" onclick="openLb('p1',2)"><img src="Frame_3.png" alt="Аспект — варианты"></div>
+    <div class="img-card" onclick="openLb('p1',3)"><img src="Frame_4.png" alt="Аспект — горизонталь"></div>
+    <div class="img-card" onclick="openLb('p1',4)"><img src="Frame_15.png" alt="Аспект — в среде"></div>
+  </div>
+  <div class="project-footer">
+    <div></div>
+    <p class="project-desc">
+      <span class="ru on">Буква А — не буква, а форма. Острая, структурная. Логотип строится как архитектура: каждый угол выверен, ничего лишнего. Масштабируется от штампа до фасада без потери характера.</span>
+      <span class="en">The letter A isn't a letter — it's a form. Sharp, structural. Built like architecture: every angle calculated, nothing extra. Scales from stamp to facade without losing its character.</span>
+    </p>
+    <div class="project-specs">
+      <div class="spec-row">
+        <span class="spec-key"><span class="ru on">Клиент</span><span class="en">Client</span></span>
+        <span class="spec-val">ГК «Аспект»</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key"><span class="ru on">Стиль</span><span class="en">Style</span></span>
+        <span class="spec-val"><span class="ru on">Графичный, строгий</span><span class="en">Graphic, strict</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECT 02 -->
+<div class="project" id="p2">
+  <div class="project-header">
+    <span class="project-num">02</span>
+    <h2 class="project-name"><span class="ru on">ГК «Аспект»</span><span class="en">Aspect Group</span></h2>
+    <span class="project-year">2024</span>
+  </div>
+  <div class="project-tags-row">
+    <span class="tag"><span class="ru on">Айдентика</span><span class="en">Identity</span></span>
+    <span class="tag"><span class="ru on">Концепция 2</span><span class="en">Concept 2</span></span>
+  </div>
+  <div class="img-grid layout-b" data-gallery="p2">
+    <div class="img-card" onclick="openLb('p2',0)"><img src="Frame_9.png" alt="Аспект — астериск"></div>
+    <div class="img-card" onclick="openLb('p2',1)"><img src="Frame_11.png" alt="Аспект — круговой"></div>
+    <div class="img-card" onclick="openLb('p2',2)"><img src="Frame_12.png" alt="Аспект — цветные"></div>
+    <div class="img-card col-span" onclick="openLb('p2',3)"><img src="Frame_13.png" alt="Аспект — красный контур"></div>
+    <div class="img-card" onclick="openLb('p2',4)"><img src="Frame_10.png" alt="Аспект — варианты"></div>
+  </div>
+  <div class="project-footer">
+    <div></div>
+    <p class="project-desc">
+      <span class="ru on">Нечётное число лучей — не случайность. Компания работает сразу в нескольких направлениях, и знак это показывает буквально. Асимметрия — признак системы в движении, не декор.</span>
+      <span class="en">An odd number of rays — not a coincidence. The company moves in multiple directions at once, and the mark shows it literally. Asymmetry is a system in motion, not decoration.</span>
+    </p>
+    <div class="project-specs">
+      <div class="spec-row">
+        <span class="spec-key"><span class="ru on">Клиент</span><span class="en">Client</span></span>
+        <span class="spec-val">ГК «Аспект»</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key"><span class="ru on">Стиль</span><span class="en">Style</span></span>
+        <span class="spec-val"><span class="ru on">Динамичный</span><span class="en">Dynamic</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECT 03 -->
+<div class="project" id="p3">
+  <div class="project-header">
+    <span class="project-num">03</span>
+    <h2 class="project-name"><span class="ru on">«Раз Два Три»</span><span class="en">"Raz Dva Tri"</span></h2>
+    <span class="project-year">2024</span>
+  </div>
+  <div class="project-tags-row">
+    <span class="tag"><span class="ru on">Брендинг</span><span class="en">Branding</span></span>
+    <span class="tag"><span class="ru on">Коллекционный конструктор</span><span class="en">Collectible constructor</span></span>
+    <span class="tag"><span class="ru on">Полный цикл</span><span class="en">Full cycle</span></span>
+  </div>
+  <div class="img-grid layout-b" data-gallery="p3">
+    <div class="img-card" onclick="openLb('p3',0)"><img src="123.png" alt="123 — знак"></div>
+    <div class="img-card" onclick="openLb('p3',1)"><img src="123-1.png" alt="123 — логотип"></div>
+    <div class="img-card" onclick="openLb('p3',2)"><img src="123-2.png" alt="123 — вертикальный"></div>
+    <div class="img-card" onclick="openLb('p3',3)"><img src="123-3.png" alt="123 — мерч"></div>
+    <div class="img-card" onclick="openLb('p3',4)"><img src="123-4.png" alt="123 — среда"></div>
+    <div class="img-card" onclick="openLb('p3',5)"><img src="123-5.png" alt="123 — носители"></div>
+  </div>
+  <div class="project-footer">
+    <div></div>
+    <p class="project-desc">
+      <span class="ru on">Коллекционный конструктор по мотивам русского культурного кода. Три слова — три блока — один удар. Для этого проекта сделан полный цикл: брендинг, упаковка, сайт. Конденсированный гротеск на максимуме — прямо, без лишних объяснений. <a href="https://1-2-3.space/" target="_blank" style="color:var(--ink);text-decoration:underline;text-underline-offset:3px;">1-2-3.space</a></span>
+      <span class="en">A collectible constructor inspired by Russian cultural code. Three words — three blocks — one punch. Full cycle for this project: branding, packaging, website. Condensed grotesque at maximum weight — direct, no explanation needed. <a href="https://1-2-3.space/" target="_blank" style="color:var(--ink);text-decoration:underline;text-underline-offset:3px;">1-2-3.space</a></span>
+    </p>
+    <div class="project-specs">
+      <div class="spec-row">
+        <span class="spec-key"><span class="ru on">Клиент</span><span class="en">Client</span></span>
+        <span class="spec-val">«Раз Два Три»</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key"><span class="ru on">Объём</span><span class="en">Scope</span></span>
+        <span class="spec-val"><span class="ru on">Брендинг + упаковка + сайт</span><span class="en">Branding + packaging + website</span></span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key"><span class="ru on">Стиль</span><span class="en">Style</span></span>
+        <span class="spec-val"><span class="ru on">Смелый, типографичный</span><span class="en">Bold, typographic</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-grid">
+    <div>
+      <p class="about-eyebrow"><span class="ru on">О дизайнере</span><span class="en">About</span></p>
+      <h2 class="about-name">
+        <span class="ru on">Поздеева Полина</span>
+        <span class="en">Pauline</span>
+      </h2>
+      <p class="about-text">
+        <span class="ru on">5 лет делаю айдентику для компаний, которым важно не просто выглядеть — а быть узнаваемыми. Работаю с B2B: промышленность, сервис, производство. Без воды, без украшательства.</span>
+        <span class="en">5 years making identity for companies that don't just want to look good — they want to be recognisable. B2B: industrial, service, production. No fluff, no decoration.</span>
+      </p>
+    </div>
+    <div>
+      <p class="about-quote">
+        <span class="ru on">Хороший знак работает в любом размере. Плохой — только на мокапе.</span>
+        <span class="en">A good mark works at any size. A bad one only works on a mockup.</span>
+      </p>
+      <ul class="contact-list">
+        <li class="contact-item">
+          <span class="contact-key">Email</span>
+          <a href="mailto:pauline.pozdeeva@gmail.com" class="contact-val">pauline.pozdeeva@gmail.com</a>
+        </li>
+        <li class="contact-item">
+          <span class="contact-key">Telegram</span>
+          <a href="https://t.me/p_pauline" class="contact-val">@p_pauline</a>
+        </li>
+        <li class="contact-item">
+          <span class="contact-key"><span class="ru on">Телефон</span><span class="en">Phone</span></span>
+          <a href="tel:+79962174736" class="contact-val">+7 996 217-47-36</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-text"><span class="ru on">© 2025 Поздеева Полина</span><span class="en">© 2025 Pauline Pozdeeva</span></span>
+  <span class="footer-text"><span class="ru on">Айдентика · Знаки · Брендинг</span><span class="en">Identity · Marks · Branding</span></span>
+</footer>
+
+</div></div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" onclick="closeLb(event)">
+  <button class="lb-close" onclick="closeLb()">×</button>
+  <button class="lb-arrow lb-prev" onclick="lbNav(-1, event)">‹</button>
+  <div class="lb-img-wrap" onclick="event.stopPropagation()">
+    <img id="lb-img" src="" alt="">
+  </div>
+  <button class="lb-arrow lb-next" onclick="lbNav(1, event)">›</button>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
+
+<script>
+const galleries = {
+  p1: ['Frame_5.png','Frame_1.png','Frame_3.png','Frame_4.png','Frame_15.png'],
+  p2: ['Frame_9.png','Frame_11.png','Frame_12.png','Frame_13.png','Frame_10.png'],
+  p3: ['123.png','123-1.png','123-2.png','123-3.png','123-4.png','123-5.png']
+};
+let curGal = null, curIdx = 0;
+
+function openLb(gal, idx) {
+  curGal = gal; curIdx = idx;
+  showLbImg();
+  document.getElementById('lb').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function showLbImg() {
+  const imgs = galleries[curGal];
+  document.getElementById('lb-img').src = imgs[curIdx];
+  document.getElementById('lb-counter').textContent = (curIdx + 1) + ' / ' + imgs.length;
+}
+function lbNav(dir, e) {
+  if (e) e.stopPropagation();
+  const imgs = galleries[curGal];
+  curIdx = (curIdx + dir + imgs.length) % imgs.length;
+  showLbImg();
+}
+function closeLb(e) {
+  if (e && e.target === document.getElementById('lb-img')) return;
+  document.getElementById('lb').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lb').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLb();
+  if (e.key === 'ArrowLeft')  lbNav(-1);
+  if (e.key === 'ArrowRight') lbNav(1);
+});
+
+function setLang(l) {
+  const other = l === 'ru' ? 'en' : 'ru';
+  document.querySelectorAll('.' + l).forEach(el => el.classList.add('on'));
+  document.querySelectorAll('.' + other).forEach(el => el.classList.remove('on'));
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === l);
+  });
+  document.documentElement.lang = l;
+}
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.05 });
+document.querySelectorAll('.project').forEach(el => obs.observe(el));
+
+setLang('ru');
+</script>
+</body>
+</html>
