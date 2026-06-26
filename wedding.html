@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Свадьба — Поздеева Полина</title>
+  <title>Свадебный дизайн — Поздеева Полина</title>
   <meta name="description" content="Айдентика свадьбы Марины и Евгения: марсала и кремовый, каллиграфия, кружево и орхидея. Цифровое и бумажное приглашение, карточки для столов.">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Свадьба Марины и Евгения — кейс Полины Поздеевой">
+  <meta property="og:title" content="Свадебный дизайн — кейс Полины Поздеевой">
   <meta property="og:description" content="Айдентика свадьбы: цифровое и бумажное приглашение, карточки для столов в марсала-палитре.">
   <meta property="og:url" content="https://pauline-p-s.github.io/wedding.html">
   <meta property="og:image" content="https://pauline-p-s.github.io/img/og.jpg">
@@ -14,7 +14,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="ru_RU">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Свадьба Марины и Евгения — кейс Полины Поздеевой">
+  <meta name="twitter:title" content="Свадебный дизайн — кейс Полины Поздеевой">
   <meta name="twitter:image" content="https://pauline-p-s.github.io/img/og.jpg">
   <meta name="theme-color" content="#5e2230">
   <link rel="stylesheet" href="style.css">
@@ -57,6 +57,20 @@
     .browser-scroll::-webkit-scrollbar { width: 9px; }
     .browser-scroll::-webkit-scrollbar-track { background: transparent; }
     .browser-scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.16); border-radius: 5px; }
+
+    /* text-left / narrow-frame-right split */
+    .pr-split {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 56px;
+      align-items: start;
+    }
+    .pr-split .browser-frame { width: 100%; max-width: 400px; }
+    .pr-split .pr-split-media { position: sticky; top: 100px; }
+    @media (max-width: 860px) {
+      .pr-split { grid-template-columns: 1fr; gap: 28px; }
+      .pr-split .pr-split-media { position: static; }
+    }
     .browser-cap {
       font-size: 13px;
       color: var(--grey);
@@ -83,8 +97,8 @@
 
   <header class="case-hero wed-hero" style="padding-top:130px;padding-bottom:64px;">
     <div class="case-hero-meta">
-      <div class="case-hero-index">05 — <span data-ru="Свадьба" data-en="Wedding">Свадьба</span></div>
-      <h1 class="case-hero-title">Марина<br>&amp; Евгений</h1>
+      <div class="case-hero-index">05 — <span data-ru="Марина &amp; Евгений" data-en="Marina &amp; Evgeny">Марина &amp; Евгений</span></div>
+      <h1 class="case-hero-title" data-ru="Свадебный<br>дизайн" data-en="Wedding<br>Design">Свадебный<br>дизайн</h1>
       <div class="case-hero-tags">
         <span class="case-hero-tag" data-ru="Айдентика" data-en="Identity">Айдентика</span>
         <span class="case-hero-tag" data-ru="Приглашение" data-en="Invitation">Приглашение</span>
@@ -103,22 +117,28 @@
 
   <div class="divider"></div>
 
-  <!-- DIGITAL INVITATION (PDF) -->
+  <!-- DIGITAL INVITATION -->
   <section class="case-section">
-    <div class="case-section-label" data-ru="Приглашение" data-en="Invitation">Приглашение</div>
-    <h2 class="case-section-title" data-ru="Цифровое<br>приглашение" data-en="Digital<br>Invitation">Цифровое<br>приглашение</h2>
-    <p class="case-section-text"
-       data-ru="Многостраничное приглашение-лонгрид: знакомство пары, локация и тайминг дня, дресс-код с палитрой, пожелания по подаркам и цветам, анкета гостя. Каллиграфические заголовки, кружевные акценты и живая съёмка в марсала-палитре. Полистайте прямо в окне ниже."
-       data-en="A multi-page longread invitation: the couple, location and timeline, dress code with a palette, wishes on gifts and flowers, and a guest RSVP. Calligraphic headings, lace accents and live photography in a marsala palette. Scroll right inside the frame below.">
-      Многостраничное приглашение-лонгрид: знакомство пары, локация и тайминг дня, дресс-код с палитрой, пожелания по подаркам и цветам, анкета гостя. Каллиграфические заголовки, кружевные акценты и живая съёмка в марсала-палитре. Полистайте прямо в окне ниже.
-    </p>
-    <div class="browser-frame">
-      <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">приглашение · Марина &amp; Евгений</span></div>
-      <div class="browser-scroll">
-        <img src="img/invite-m.png" alt="Приглашение на свадьбу — Марина и Евгений">
+    <div class="pr-split">
+      <div class="pr-split-text">
+        <div class="case-section-label" data-ru="Приглашение" data-en="Invitation">Приглашение</div>
+        <h2 class="case-section-title" data-ru="Цифровое<br>приглашение" data-en="Digital<br>Invitation">Цифровое<br>приглашение</h2>
+        <p class="case-section-text"
+           data-ru="Мобильное приглашение-лонгрид: знакомство пары, локация и тайминг дня, дресс-код с палитрой, пожелания по подаркам и цветам, анкета гостя. Каллиграфические заголовки, кружевные акценты и живая съёмка в марсала-палитре. Полистайте прямо в окне справа."
+           data-en="A mobile longread invitation: the couple, location and timeline, dress code with a palette, wishes on gifts and flowers, and a guest RSVP. Calligraphic headings, lace accents and live photography in a marsala palette. Scroll right inside the frame.">
+          Мобильное приглашение-лонгрид: знакомство пары, локация и тайминг дня, дресс-код с палитрой, пожелания по подаркам и цветам, анкета гостя. Каллиграфические заголовки, кружевные акценты и живая съёмка в марсала-палитре. Полистайте прямо в окне справа.
+        </p>
       </div>
-      <div class="browser-cap">
-        <span data-ru="Прокручивается внутри окна." data-en="Scrolls inside the frame.">Прокручивается внутри окна.</span>
+      <div class="pr-split-media">
+        <div class="browser-frame">
+          <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">приглашение · Марина &amp; Евгений</span></div>
+          <div class="browser-scroll">
+            <img src="img/invite-m.png" alt="Приглашение на свадьбу — Марина и Евгений">
+          </div>
+          <div class="browser-cap">
+            <span data-ru="Прокручивается внутри окна." data-en="Scrolls inside the frame.">Прокручивается внутри окна.</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
