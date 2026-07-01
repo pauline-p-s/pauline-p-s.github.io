@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Поздеева Полина — CV</title>
+<style>
+  @font-face {
+    font-family: 'Hauora';
+    src: url('../fonts/HauoraGX.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black: #0a0a0a;
+    --grey: #8a8a8a;
+    --grey-light: #e0e0dc;
+  }
+  @page { size: A4; margin: 12mm 16mm 12mm 16mm; }
+  html, body { font-family: 'Hauora', Arial, sans-serif; color: var(--black); font-size: 12px; }
+  body { font-variation-settings: 'wght' 400; line-height: 1.35; -webkit-font-smoothing: antialiased; }
+
+  .head { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 11px; border-bottom: 1.4px solid var(--black); }
+  .head-name { font-size: 30px; font-variation-settings: 'wght' 650; letter-spacing: -0.01em; line-height: 1.02; }
+  .head-role { font-size: 12.5px; font-variation-settings: 'wght' 500; color: var(--grey); margin-top: 3px; letter-spacing: 0.01em; }
+  .head-contact { text-align: right; font-size: 10.5px; color: var(--grey); line-height: 1.65; }
+  .head-contact a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--grey-light); }
+
+  .lead { font-size: 12px; color: #333; max-width: 100%; padding: 10px 0 12px; border-bottom: 1px solid var(--grey-light); }
+
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding: 10px 0 12px; border-bottom: 1px solid var(--grey-light); }
+  .grid4 h3 { font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--grey); font-variation-settings: 'wght' 600; margin-bottom: 5px; }
+  .grid4 ul { list-style: none; }
+  .grid4 li { font-size: 11px; padding: 1.5px 0; }
+
+  .section-title { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--grey); font-variation-settings: 'wght' 600; margin: 12px 0 6px; }
+
+  .job { padding: 6px 0; border-bottom: 1px solid var(--grey-light); }
+  .job:last-child { border-bottom: none; }
+  .job-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .job-co { font-size: 14px; font-variation-settings: 'wght' 650; letter-spacing: -0.005em; }
+  .job-role { font-size: 11px; color: var(--grey); }
+  .job-dates { margin-left: auto; font-size: 10.5px; color: var(--grey); white-space: nowrap; }
+  .job-list { list-style: none; margin-top: 6px; display: grid; gap: 3px; }
+  .job-list li { font-size: 11px; line-height: 1.36; color: #2a2a2a; padding-left: 13px; position: relative; }
+  .job-list li::before { content: "—"; position: absolute; left: 0; color: var(--grey); }
+
+  .foot { margin-top: 10px; padding-top: 8px; border-top: 1.4px solid var(--black); display: flex; justify-content: space-between; font-size: 10px; color: var(--grey); }
+  .foot a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--grey-light); }
+</style>
+</head>
+<body>
+
+  <div class="head">
+    <div>
+      <div class="head-name">Поздеева Полина</div>
+      <div class="head-role">Бренд-дизайнер</div>
+    </div>
+    <div class="head-contact">
+      pauline.pozdeeva@gmail.com<br>
+      +7 (996) 217-47-36<br>
+      <a href="https://t.me/p_pauline">t.me/p_pauline</a> · <a href="https://pauline-p-s.github.io/">pauline-p-s.github.io</a>
+    </div>
+  </div>
+
+  <p class="lead">Бренд-дизайнер с опытом более 4 лет. Работаю на стыке айдентики, упаковки и цифровых продуктов — от стратегии и концепции до реализации. Веду проекты самостоятельно: от брифа и брендбука до препресса и производства.</p>
+
+  <div class="grid4">
+    <div>
+      <h3>Скиллы</h3>
+      <ul>
+        <li>UI/UX</li>
+        <li>Key-visual</li>
+        <li>Графический дизайн</li>
+        <li>SMM-дизайн</li>
+        <li>Ивент-дизайн</li>
+        <li>Дизайн-системы и UI-kit</li>
+        <li>Презентации</li>
+        <li>Руководство командой</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Инструменты</h3>
+      <ul>
+        <li>Figma</li>
+        <li>Photoshop</li>
+        <li>Illustrator</li>
+        <li>InDesign</li>
+        <li>Tilda</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Языки</h3>
+      <ul>
+        <li>Русский — родной</li>
+        <li>Английский — B2</li>
+        <li>Испанский — A1</li>
+      </ul>
+    </div>
+    <div>
+      <h3>AI</h3>
+      <ul>
+        <li>ChatGPT</li>
+        <li>Claude Code</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">Опыт работы</div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-co">Акселератор Возможностей</span>
+      <span class="job-role">Графический дизайнер · ивент-брендинг</span>
+      <span class="job-dates">июль 2024 — янв 2025</span>
+    </div>
+    <ul class="job-list">
+      <li>Создавала визуальные концепции конференций и хакатонов «под ключ»: логотип, фирменная графика, оформление пространства и промо-материалы.</li>
+      <li>Брендировала площадки крупных событий — включая 3 этажа Форума инновационных центров в кластере «Ломоносов».</li>
+      <li>Разработала фирменный стиль для 5+ мероприятий и мерч для 1500+ участников форума.</li>
+      <li>Собирала адаптивные лендинги на Tilda и вела предпечатную подготовку для широкоформатной и малой печати.</li>
+      <li>Работала с брендами СБЕР, Sense, Бухэксперт, Элантех, Tion, RedLab и другими.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-co">PLANT</span>
+      <span class="job-role">SMM-дизайнер · агентство</span>
+      <span class="job-dates">май 2024 — июль 2024</span>
+    </div>
+    <ul class="job-list">
+      <li>Вела контентные ленты (фото + графика) сразу для нескольких брендов: санаторий «Истокъ», косметика Story Sisters, одежда Furly, клиника POSSI.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-co">Sibaristica Coffee Roasters</span>
+      <span class="job-role">Дизайнер · производство и сеть кофеен</span>
+      <span class="job-dates">май 2023 — июнь 2024</span>
+    </div>
+    <ul class="job-list">
+      <li>Отвечала за весь визуал бренда: соцсети, упаковка, мерч, инфографика и презентации.</li>
+      <li>Собрала гайдлайн по упаковке, по которому сотрудники без дизайн-навыков самостоятельно создают визуалы — это сняло нагрузку с дизайна.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-co">BAUM</span>
+      <span class="job-role">Графический дизайнер · IT · проектно</span>
+    </div>
+    <ul class="job-list">
+      <li>Разработала концепцию фирменного стиля продукта Codium: логотип, цвета, шрифтовую систему.</li>
+      <li>Создала key-visual и линейку мерча для 200+ сотрудников (лонгсливы, кардиганы, шопперы, кружки, бутылки).</li>
+      <li>Готовила макеты к печати, адаптировала веб-страницы под десктоп и мобайл, вела коммуникацию с производствами и подрядчиками.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-co">MIXAR</span>
+      <span class="job-role">UI/UX-дизайнер · AR/VR-агентство · проектно</span>
+    </div>
+    <ul class="job-list">
+      <li>Проектировала интерфейсы сайтов и веб-страниц.</li>
+      <li>Сделала UI для интерфейса 3D-визуализации (проект для ЛУКОЙЛ) и админ-панели заказчика.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-co">LINII</span>
+      <span class="job-role">SMM-дизайнер · брендинговое агентство · проектно</span>
+    </div>
+    <ul class="job-list">
+      <li>Сделала 30+ креативов для соцсетей строго в бренд-гайдлайне: кейсы, тренды в дизайне, анонсы мероприятий, интервью с экспертами.</li>
+      <li>Монтировала видео и адаптировала экспертные статьи к публикации — подбор иллюстраций и вёрстка в едином стиле бренда.</li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    <span>© 2026 Поздеева Полина</span>
+    <span>Портфолио — <a href="https://pauline-p-s.github.io/">pauline-p-s.github.io</a></span>
+  </div>
+
+</body>
+</html>
