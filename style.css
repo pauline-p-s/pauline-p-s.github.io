@@ -569,43 +569,31 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 }
 .about-list li:last-child { border-bottom: none; }
 
-/* EXPERIENCE — collapsible */
-.exp { border-top: 1px solid var(--grey-light); margin-top: 56px; }
-.exp-summary {
-  list-style: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 28px 0;
+/* EXPERIENCE — always visible, compact */
+.exp { border-top: 1px solid var(--grey-light); margin-top: 56px; padding-top: 32px; }
+.exp-title {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--black);
-  transition: color 0.2s;
+  color: var(--grey);
+  margin-bottom: 22px;
 }
-.exp-summary:hover { color: var(--grey); }
-.exp-summary::-webkit-details-marker { display: none; }
-.exp-sign { position: relative; width: 16px; height: 16px; flex-shrink: 0; }
-.exp-sign::before, .exp-sign::after {
-  content: ""; position: absolute; background: currentColor;
-  top: 50%; left: 50%; transform: translate(-50%, -50%);
+.exp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px 32px;
 }
-.exp-sign::before { width: 16px; height: 1.5px; }
-.exp-sign::after  { width: 1.5px; height: 16px; transition: transform 0.25s var(--ease); }
-.exp[open] .exp-sign::after { transform: translate(-50%, -50%) scaleY(0); }
-
-.exp-job { padding: 26px 0; border-top: 1px solid var(--grey-light); }
-.exp-job-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
-.exp-co { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
-.exp-role { font-size: 14px; color: var(--grey); }
-.exp-dates { margin-left: auto; font-size: 13px; color: var(--grey); letter-spacing: 0.02em; white-space: nowrap; }
-.exp-list { list-style: none; margin-top: 14px; display: grid; gap: 8px; max-width: 760px; }
-.exp-list li { font-size: 15px; line-height: 1.45; color: #3a3a3a; padding-left: 18px; position: relative; }
-.exp-list li::before { content: "—"; position: absolute; left: 0; color: var(--grey); }
+.exp-job { }
+.exp-co { font-size: 15px; font-weight: 600; letter-spacing: -0.005em; }
+.exp-dates { font-size: 13px; color: var(--grey); font-weight: 400; }
+.exp-role { font-size: 13px; color: var(--grey); margin-top: 2px; }
+.exp-cv-link { margin-top: 28px; }
+@media (max-width: 900px) {
+  .exp-grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 640px) {
-  .exp-dates { margin-left: 0; width: 100%; }
+  .exp-grid { grid-template-columns: 1fr; }
 }
 
 /* ============================================
