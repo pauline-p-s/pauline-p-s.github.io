@@ -16,9 +16,9 @@
     --grey: #8a8a8a;
     --grey-light: #e0e0dc;
   }
-  @page { size: A4; margin: 9mm 16mm 9mm 16mm; }
-  html, body { font-family: 'Hauora', Arial, sans-serif; color: var(--black); font-size: 12px; }
-  body { font-variation-settings: 'wght' 400; line-height: 1.3; -webkit-font-smoothing: antialiased; }
+  @page { size: A4; margin: 7mm 16mm 7mm 16mm; }
+  html, body { font-family: 'Hauora', Arial, sans-serif; color: var(--black); font-size: 11.5px; }
+  body { font-variation-settings: 'wght' 400; line-height: 1.28; -webkit-font-smoothing: antialiased; }
 
   .head { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 11px; border-bottom: 1.4px solid var(--black); }
   .head-name { font-size: 30px; font-variation-settings: 'wght' 650; letter-spacing: -0.01em; line-height: 1.02; }
@@ -31,21 +31,21 @@
   .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding: 10px 0 12px; border-bottom: 1px solid var(--grey-light); }
   .grid4 h3 { font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--grey); font-variation-settings: 'wght' 600; margin-bottom: 5px; }
   .grid4 ul { list-style: none; }
-  .grid4 li { font-size: 11px; padding: 1.5px 0; }
+  .grid4 li { font-size: 10.5px; padding: 1px 0; }
 
-  .section-title { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--grey); font-variation-settings: 'wght' 600; margin: 12px 0 6px; }
+  .section-title { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--grey); font-variation-settings: 'wght' 600; margin: 10px 0 5px; }
 
-  .job { padding: 4px 0; border-bottom: 1px solid var(--grey-light); }
+  .job { padding: 3px 0; border-bottom: 1px solid var(--grey-light); }
   .job:last-child { border-bottom: none; }
   .job-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
-  .job-co { font-size: 14px; font-variation-settings: 'wght' 650; letter-spacing: -0.005em; }
-  .job-role { font-size: 11px; color: var(--grey); }
-  .job-dates { margin-left: auto; font-size: 10.5px; color: var(--grey); white-space: nowrap; }
-  .job-list { list-style: none; margin-top: 6px; display: grid; gap: 3px; }
-  .job-list li { font-size: 11px; line-height: 1.36; color: #2a2a2a; padding-left: 13px; position: relative; }
+  .job-co { font-size: 13.5px; font-variation-settings: 'wght' 650; letter-spacing: -0.005em; }
+  .job-role { font-size: 10.5px; color: var(--grey); }
+  .job-dates { margin-left: auto; font-size: 10px; color: var(--grey); white-space: nowrap; }
+  .job-list { list-style: none; margin-top: 4px; display: grid; gap: 2px; }
+  .job-list li { font-size: 10.5px; line-height: 1.3; color: #2a2a2a; padding-left: 13px; position: relative; }
   .job-list li::before { content: "—"; position: absolute; left: 0; color: var(--grey); }
 
-  .foot { margin-top: 10px; padding-top: 8px; border-top: 1.4px solid var(--black); display: flex; justify-content: space-between; font-size: 10px; color: var(--grey); }
+  .foot { margin-top: 8px; padding-top: 6px; border-top: 1.4px solid var(--black); display: flex; justify-content: space-between; font-size: 10px; color: var(--grey); }
   .foot a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--grey-light); }
 </style>
 </head>
@@ -75,6 +75,7 @@
         <li>SMM-дизайн</li>
         <li>Ивент-дизайн</li>
         <li>Дизайн-системы и UI-kit</li>
+        <li>100 Studio 2.0</li>
         <li>Презентации</li>
         <li>Руководство командой</li>
       </ul>
@@ -107,6 +108,23 @@
   </div>
 
   <div class="section-title">Опыт работы</div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-co">«Раз Два Три»</span>
+      <span class="job-role">Старший бренд-дизайнер</span>
+      <span class="job-dates">август 2025 — наст. время</span>
+    </div>
+    <ul class="job-list">
+      <li>Выстроила дизайн-систему упаковки бренда конструкторов «Раз Два Три» и разработала упаковку для всей линейки моделей.</li>
+      <li>Арт-дирекшн и ретушь предметных сцен с моделями конструкторов для упаковки и промо-материалов.</li>
+      <li>Работала в 100 Studio 2.0 над 3D-визуализацией и мокапами коробок.</li>
+      <li>Разработала брендбук и полную систему визуальной идентичности бренда.</li>
+      <li>Вела визуальный контент для соцсетей (посты, карусели) и разработала карточки для маркетплейсов.</li>
+      <li>Собрала адаптивный сайт бренда на Tilda (1-2-3.space) с анимацией и видео-вставками.</li>
+      <li>Курировала производство: работа с типографиями и подрядчиками на всех этапах печати.</li>
+    </ul>
+  </div>
 
   <div class="job">
     <div class="job-head">
@@ -143,20 +161,6 @@
     <ul class="job-list">
       <li>Отвечала за весь визуал бренда: соцсети, упаковка, мерч, инфографика и презентации.</li>
       <li>Собрала гайдлайн по упаковке, по которому сотрудники без дизайн-навыков самостоятельно создают визуалы — это сняло нагрузку с дизайна.</li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <div class="job-head">
-      <span class="job-co">«Раз Два Три»</span>
-      <span class="job-role">Старший бренд-дизайнер</span>
-    </div>
-    <ul class="job-list">
-      <li>Разработала брендбук и полную систему визуальной идентичности для бренда инженерных конструкторов «Раз Два Три».</li>
-      <li>Спроектировала систему упаковки: арт-дирекшн и ретушь сцен, 3D-мокапы коробок для нескольких моделей.</li>
-      <li>Вела визуальный контент для соцсетей бренда: посты, карусели, оформление ленты.</li>
-      <li>Разработала карточки для маркетплейсов.</li>
-      <li>Собрала адаптивный сайт бренда на Tilda (1-2-3.space) с анимацией и видео-вставками.</li>
     </ul>
   </div>
 
